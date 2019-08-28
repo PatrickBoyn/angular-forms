@@ -4,3 +4,6 @@
 :not(:first-child).ng-invalid.ng-touched{
   border: 1px solid red;
 }
+textarea{
+  margin: 6px;
+}
