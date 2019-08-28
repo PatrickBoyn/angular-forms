@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <!-- the # is a local reference. -->
       <form (ngSubmit)="onSubmit(form)" #form="ngForm">
-        <div id="user-data">
+        <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
           <div class="form-group">
             <label for="username">Username</label>
             <p *ngIf="!form.valid && form.touched">Please input a name</p>
@@ -16,6 +16,7 @@
             <input type="email" id="email" class="form-control" ngModel name="email" required email />
           </div>
         </div>
+        <p *ngIf="!userData.valid && userData.touched">Please input proper credentials.</p>
         <div class="form-group">
           <label for="secret">Secret Questions</label>
           <select id="secret" class="form-control" [ngModel]="defaultQuestion" name="secret">
