@@ -9,7 +9,7 @@
             <p *ngIf="!form.valid && form.touched">Please input a name</p>
             <input type="text" id="username" class="form-control" ngModel name="username" required />
           </div>
-          <button class="btn btn-default" type="button">Suggest an Username</button>
+          <button class="btn btn-default" type="button" (click)="suggestUserName()">Suggest an Username</button>
           <div class="form-group">
             <label for="email">Mail</label>
             <p *ngIf="!form.valid && form.touched">Please add a correct email address</p>
@@ -24,7 +24,8 @@
             <option value="teacher">Your first teacher?</option>
           </select>
           <div class="form-group">
-            <textarea name="question-answer" cols="115" rows="10" [(ngModel)]="answer"></textarea>
+            <!-- The names apparently must match in order for setValue to work. -->
+            <textarea name="questionAnswer" cols="115" rows="10" [(ngModel)]="answer"></textarea>
           </div>
         </div>
         <div class="radio" *ngFor="let gender of genders">
@@ -36,7 +37,9 @@
           </div>
         </div>
         <p>Your reply: {{ answer }}</p>
-        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+          Submit
+        </button>
       </form>
     </div>
   </div>
